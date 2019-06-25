@@ -1,0 +1,66 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\am0055137\\OneDrive - Windesheim Office365\\Werk\\Projecten\\Visual Studio\\CSBlockChain\\CSBlockChain.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\am0055137\\OneDrive - Windesheim Office365\\Werk\\Projecten\\Visual Studio\\CSBlockChain\\CSBlockChain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\am0055137\\OneDrive - Windesheim Office365\\Werk\\Projecten\\Visual Studio\\CSBlockChain\\CSBlockChain.csproj",
+        "projectName": "CSBlockChain",
+        "projectPath": "C:\\Users\\am0055137\\OneDrive - Windesheim Office365\\Werk\\Projecten\\Visual Studio\\CSBlockChain\\CSBlockChain.csproj",
+        "packagesPath": "C:\\Users\\am0055137\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\am0055137\\OneDrive - Windesheim Office365\\Werk\\Projecten\\Visual Studio\\CSBlockChain\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\am0055137\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "ChilkatDnCore": {
+              "target": "Package",
+              "version": "[9.5.0.78, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.2, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}

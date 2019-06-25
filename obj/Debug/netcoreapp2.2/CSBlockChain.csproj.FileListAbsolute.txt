@@ -1,0 +1,11 @@
+C:\Users\am0055137\OneDrive - Windesheim Office365\Werk\Projecten\Visual Studio\CSBlockChain\bin\Debug\netcoreapp2.2\CSBlockChain.deps.json
+C:\Users\am0055137\OneDrive - Windesheim Office365\Werk\Projecten\Visual Studio\CSBlockChain\bin\Debug\netcoreapp2.2\CSBlockChain.runtimeconfig.json
+C:\Users\am0055137\OneDrive - Windesheim Office365\Werk\Projecten\Visual Studio\CSBlockChain\bin\Debug\netcoreapp2.2\CSBlockChain.runtimeconfig.dev.json
+C:\Users\am0055137\OneDrive - Windesheim Office365\Werk\Projecten\Visual Studio\CSBlockChain\bin\Debug\netcoreapp2.2\CSBlockChain.dll
+C:\Users\am0055137\OneDrive - Windesheim Office365\Werk\Projecten\Visual Studio\CSBlockChain\bin\Debug\netcoreapp2.2\CSBlockChain.pdb
+C:\Users\am0055137\OneDrive - Windesheim Office365\Werk\Projecten\Visual Studio\CSBlockChain\obj\Debug\netcoreapp2.2\CSBlockChain.csprojAssemblyReference.cache
+C:\Users\am0055137\OneDrive - Windesheim Office365\Werk\Projecten\Visual Studio\CSBlockChain\obj\Debug\netcoreapp2.2\CSBlockChain.csproj.CoreCompileInputs.cache
+C:\Users\am0055137\OneDrive - Windesheim Office365\Werk\Projecten\Visual Studio\CSBlockChain\obj\Debug\netcoreapp2.2\CSBlockChain.AssemblyInfoInputs.cache
+C:\Users\am0055137\OneDrive - Windesheim Office365\Werk\Projecten\Visual Studio\CSBlockChain\obj\Debug\netcoreapp2.2\CSBlockChain.AssemblyInfo.cs
+C:\Users\am0055137\OneDrive - Windesheim Office365\Werk\Projecten\Visual Studio\CSBlockChain\obj\Debug\netcoreapp2.2\CSBlockChain.dll
+C:\Users\am0055137\OneDrive - Windesheim Office365\Werk\Projecten\Visual Studio\CSBlockChain\obj\Debug\netcoreapp2.2\CSBlockChain.pdb

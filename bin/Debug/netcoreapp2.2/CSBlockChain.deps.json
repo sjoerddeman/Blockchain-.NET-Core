@@ -1,0 +1,91 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v2.2",
+    "signature": "9a1567a8740133fc5db4da8aa53563faab4c712b"
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v2.2": {
+      "CSBlockChain/1.0.0": {
+        "dependencies": {
+          "ChilkatDnCore": "9.5.0.78",
+          "Newtonsoft.Json": "12.0.2"
+        },
+        "runtime": {
+          "CSBlockChain.dll": {}
+        }
+      },
+      "ChilkatDnCore/9.5.0.78": {
+        "dependencies": {
+          "ChilkatNativeLib": "9.5.0.78"
+        },
+        "runtime": {
+          "lib/netcoreapp1.0/ChilkatDnCore.dll": {
+            "assemblyVersion": "9.5.0.78",
+            "fileVersion": "9.5.0.78"
+          }
+        }
+      },
+      "ChilkatNativeLib/9.5.0.78": {
+        "runtimeTargets": {
+          "runtimes/linux-x64/native/libchilkatDnCore-9_5_0.so": {
+            "rid": "linux-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/osx-x64/native/libchilkatDnCore-9_5_0.dylib": {
+            "rid": "osx-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win7-x64/native/chilkatDnCore-9_5_0.dll": {
+            "rid": "win7-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win7-x86/native/chilkatDnCore-9_5_0.dll": {
+            "rid": "win7-x86",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "Newtonsoft.Json/12.0.2": {
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.0.2.23222"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CSBlockChain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ChilkatDnCore/9.5.0.78": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-oFN/bPnagICaj289l0toLNdN5HcDDfVUzbHjIIBw23WqSI3nMLUjrOyWbuZOTevn6jvd0W0IsXrxnM1VDF7YsA==",
+      "path": "chilkatdncore/9.5.0.78",
+      "hashPath": "chilkatdncore.9.5.0.78.nupkg.sha512"
+    },
+    "ChilkatNativeLib/9.5.0.78": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3J+o7mdcZpRnSpJULU3v2kkUs2+8ypdvVb/eLGCv7YjTaRdKIcyD0jPomBl2EvuXHaVDnkGZqRwZOkd2pyCAAg==",
+      "path": "chilkatnativelib/9.5.0.78",
+      "hashPath": "chilkatnativelib.9.5.0.78.nupkg.sha512"
+    },
+    "Newtonsoft.Json/12.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rTK0s2EKlfHsQsH6Yx2smvcTCeyoDNgCW7FEYyV01drPlh2T243PR2DiDXqtC5N4GDm4Ma/lkxfW5a/4793vbA==",
+      "path": "newtonsoft.json/12.0.2",
+      "hashPath": "newtonsoft.json.12.0.2.nupkg.sha512"
+    }
+  }
+}
