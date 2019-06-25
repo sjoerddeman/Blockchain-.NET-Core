@@ -45,10 +45,10 @@ namespace CSBlockChain
             //Console.WriteLine("Block 1: \n "+mn.Blocks[1]+"\n");
 
             Console.WriteLine("Masternode has: "+mn.getBalance(mn.getWalletAddress()));
-            Console.WriteLine("CN1 has: "+cn1.getBalance(cn1.getWalletAddress()));
-            Console.WriteLine("CN2 has: "+cn2.getBalance(cn2.getWalletAddress()));
-            Console.WriteLine("CN3 has: "+cn3.getBalance(cn3.getWalletAddress()));
-            Console.WriteLine("CN4 has: "+cn4.getBalance(cn4.getWalletAddress()));            
+            Console.WriteLine(cn1.Name+" has: "+cn1.getBalance(cn1.getWalletAddress()));
+            Console.WriteLine(cn2.Name+" has: "+cn2.getBalance(cn2.getWalletAddress()));
+            Console.WriteLine(cn3.Name+" has: "+cn3.getBalance(cn3.getWalletAddress()));
+            Console.WriteLine(cn4.Name+" has: "+cn4.getBalance(cn4.getWalletAddress()));            
         }
     }
 }

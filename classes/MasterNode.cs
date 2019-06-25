@@ -4,6 +4,7 @@ using System.Collections.Generic;
 public class MasterNode : Node{
 
     public List<Transaction> openTransactions = new List<Transaction>();
+
     public MasterNode(String name):base(name){
             Channel.registerMasterNode(this);
             this.Blocks = new List<Block>();
