@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public abstract class Node{
     public List<Block> Blocks {get;set;}
     public String Name{get;set;}
-    protected Wallet Wallet = new Wallet();
+    protected Wallet Wallet = Crypto.createWallet();
     public const int Difficulty = 2;
     public const double initCoins = 25;
     public Node(String name){

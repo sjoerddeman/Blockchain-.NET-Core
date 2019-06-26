@@ -39,6 +39,10 @@
       "frameworks": {
         "netcoreapp2.2": {
           "dependencies": {
+            "BouncyCastle.NetCore": {
+              "target": "Package",
+              "version": "[1.8.5, )"
+            },
             "ChilkatDnCore": {
               "target": "Package",
               "version": "[9.5.0.78, )"

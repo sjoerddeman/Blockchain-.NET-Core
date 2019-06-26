@@ -1,18 +1,27 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.2",
-    "signature": "9a1567a8740133fc5db4da8aa53563faab4c712b"
+    "signature": "aff20a713e6b7509f7e7c7eae65c4319e915176a"
   },
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v2.2": {
       "CSBlockChain/1.0.0": {
         "dependencies": {
+          "BouncyCastle.NetCore": "1.8.5",
           "ChilkatDnCore": "9.5.0.78",
           "Newtonsoft.Json": "12.0.2"
         },
         "runtime": {
           "CSBlockChain.dll": {}
+        }
+      },
+      "BouncyCastle.NetCore/1.8.5": {
+        "runtime": {
+          "lib/netstandard2.0/BouncyCastle.Crypto.dll": {
+            "assemblyVersion": "1.8.5.0",
+            "fileVersion": "1.8.19031.1"
+          }
         }
       },
       "ChilkatDnCore/9.5.0.78": {
@@ -65,6 +74,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "BouncyCastle.NetCore/1.8.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6uxsQw2UXrt82VQAWC2td3oBSJjUZ3P4u4DliagB8wf67KsU53V8sW9xwdF+IwZOOZFR0TCZuv/YKZ2BlrfAag==",
+      "path": "bouncycastle.netcore/1.8.5",
+      "hashPath": "bouncycastle.netcore.1.8.5.nupkg.sha512"
     },
     "ChilkatDnCore/9.5.0.78": {
       "type": "package",

@@ -8,9 +8,6 @@ namespace CSBlockChain
     {
         static void Main(string[] args)
         {
-            new Global().UnlockBundle("Anything for 30-day trial");
-
-
             MasterNode mn = new MasterNode("Master Node");
             ClientNode cn1 = new ClientNode("Client Node 1"); 
             ClientNode cn2 = new ClientNode("Client Node 2"); 
@@ -48,7 +45,9 @@ namespace CSBlockChain
             Console.WriteLine(cn1.Name+" has: "+cn1.getBalance(cn1.getWalletAddress()));
             Console.WriteLine(cn2.Name+" has: "+cn2.getBalance(cn2.getWalletAddress()));
             Console.WriteLine(cn3.Name+" has: "+cn3.getBalance(cn3.getWalletAddress()));
-            Console.WriteLine(cn4.Name+" has: "+cn4.getBalance(cn4.getWalletAddress()));            
+            Console.WriteLine(cn4.Name+" has: "+cn4.getBalance(cn4.getWalletAddress()));   
+
+            Console.WriteLine(mn);         
         }
     }
 }
