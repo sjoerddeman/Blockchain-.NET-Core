@@ -7,7 +7,7 @@ using Chilkat;
 public class GenesisBlock : Block {
 
     public GenesisBlock(): base(0){
-        this.Hash = "0000000000000000000000000000000000000000000000000000000000000000";
+        this.Hash = "";
         this.PreviousHash = "0";
     }
 

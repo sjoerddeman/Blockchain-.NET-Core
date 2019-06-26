@@ -8,7 +8,7 @@ public class Wallet{
         PrivateKey = privateKey;
     }
 
-    public void signTransAction(Transaction tx){
-        tx.addSignature(Crypto.signTransaction(tx.Hash, this.PrivateKey));
+    public void SignTransAction(Transaction tx){
+        tx.AddSignature(Crypto.SignTransaction(tx.Hash, this.PrivateKey));
     }
 }

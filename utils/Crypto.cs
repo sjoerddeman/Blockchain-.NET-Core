@@ -7,7 +7,7 @@ using Org.BouncyCastle.Pkcs;
 using Org.BouncyCastle.X509;
 using Org.BouncyCastle.Security;
 public static class Crypto{
-    public static string createHash(string input){
+    public static string CreateHash(string input){
         var encData = Encoding.UTF8.GetBytes(input);
         Sha256Digest sha256 = new Sha256Digest();
         sha256.BlockUpdate(encData, 0, encData.Length);
@@ -17,7 +17,7 @@ public static class Crypto{
         return hashString;
     }
 
-    public static Wallet createWallet(){ 
+    public static Wallet CreateWallet(){ 
         RsaKeyPairGenerator rsaKeyPairGnr = new RsaKeyPairGenerator(); 
         rsaKeyPairGnr.Init(new KeyGenerationParameters(new SecureRandom(), 512)); 
         AsymmetricCipherKeyPair keyPair = rsaKeyPairGnr.GenerateKeyPair();   
@@ -31,7 +31,7 @@ public static class Crypto{
         return new Wallet(serializedPublicString, serializedPrivateString);
     }
     
-    public static string signTransaction(string hash, string privateKey){
+    public static string SignTransaction(string hash, string privateKey){
         byte[] serializedPrivateBytes = Convert.FromBase64String(privateKey); 
         AsymmetricKeyParameter key = PrivateKeyFactory.CreateKey(serializedPrivateBytes);
 
@@ -47,8 +47,7 @@ public static class Crypto{
 
         return signature;         
     }
-    public static Boolean validateSignature(string sig, string hash, string publicKey){
-        Console.WriteLine(publicKey);
+    public static Boolean ValidateSignature(string sig, string hash, string publicKey){
         byte[] serializedPublicBytes = Convert.FromBase64String(publicKey); 
         AsymmetricKeyParameter key = PublicKeyFactory.CreateKey(serializedPublicBytes);
 

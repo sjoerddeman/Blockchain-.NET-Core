@@ -4,64 +4,64 @@ using System.Collections.Generic;
 public abstract class Node{
     public List<Block> Blocks {get;set;}
     public String Name{get;set;}
-    protected Wallet Wallet = Crypto.createWallet();
+    protected Wallet Wallet = Crypto.CreateWallet();
     public const int Difficulty = 2;
-    public const double initCoins = 25;
+    public const double InitCoins = 25;
     public Node(String name){
         this.Name = name;
     }
 
-    public void addBlock(Block block){
-        if(isBlockValid(block)){
+    public void AddBlock(Block block){
+        if(IsBlockValid(block) && block.Index==this.Blocks.Count){
             this.Blocks.Add(block);
         }        
     }
-    public Boolean isBlockValid(Block block){
-        if(block is GenesisBlock){
-            return true;
-        }
+    public Boolean IsBlockValid(Block block){
         Boolean result = true;
-        for(int i = 0; i<block.Data.Count; i++){
-            Transaction tx = block.Data[i];
-            double senderBalance = getBalance(tx.From, block.Index-1);
-            if(!tx.isTransactionValid(senderBalance)){
+        if(!(block is GenesisBlock)){
+            for(int i = 0; i<block.Data.Count; i++){
+                Transaction tx = block.Data[i];
+                double senderBalance = GetWalletBalance(tx.From, block.Index-1);
+                if(!tx.IsTransactionValid(senderBalance)){
+                    result = false;
+                    Console.WriteLine("Block " + block.Index + " contains invalid transactions:\n\t");
+                }
+            }
+            if(block.PreviousHash != Blocks[block.Index-1].Hash){
                 result = false;
-                Console.WriteLine("Block " + block.Index + " contains invalid transactions");
+                Console.WriteLine("This Block doesn't use the correct previous hash");
             }
         }
-        if(block.Hash != block.createBlockHash()){
+        if(block.Hash != block.CreateBlockHash()){
             result  = false;
             Console.WriteLine("Block " + block.Index + " doesn't have a valid hash");
         }
-        if(block.PreviousHash != Blocks[block.Index-1].Hash){
-            result = false;
-            Console.WriteLine("This Block doesn't use the correct previous hash");
-        }
+
         return result;
     }
-    public Boolean isChainValid(){
+    public Boolean IsChainValid(){
         Boolean result = true;
         for(int i = 0; i < Blocks.Count; i++){
-            if(!this.isBlockValid(Blocks[i])){
+            if(!this.IsBlockValid(Blocks[i])){
                 result = false;
             }
         }
         return result;
     }
 
-    public int currentBlockIndex(){
+    public int CurrentBlockIndex(){
         return this.Blocks.Count-1;
     }
 
-    public String getWalletAddress(){
+    public String GetWalletAddress(){
         return this.Wallet.PublicKey;
     }
 
-    public double getBalance(String publicKey, int blockIndex=-1){
+    public double GetWalletBalance(String publicKey, int blockIndex=-1){
         double txOut = 0;
         double txIn = 0;
-        if(publicKey == "0"){txIn = Node.initCoins;}
-        if(blockIndex==-1) blockIndex = this.currentBlockIndex();
+        if(publicKey == "0"){txIn = Node.InitCoins;}
+        if(blockIndex==-1) blockIndex = this.CurrentBlockIndex();
         for(int b = 0; b <= blockIndex; b++){
             for(int t = 0; t < this.Blocks[b].Data.Count; t++){
                 Transaction tx = this.Blocks[b].Data[t];
@@ -74,10 +74,10 @@ public abstract class Node{
         }
         return txIn - txOut;
     }
-    public void sendTransaction(String to, double amount){
+    public void SendTransaction(String to, double amount){
         Transaction tx = new Transaction(this.Wallet.PublicKey, to, amount);
-        this.Wallet.signTransAction(tx);
-        Channel.sendTransaction(tx);
+        this.Wallet.SignTransAction(tx);
+        Channel.AddNewTransaction(tx);
     }
 
     public override String ToString(){

@@ -22,21 +22,21 @@ public class Block {
         this.Hash = "";
     }
 
-    public virtual void addTransaction(Transaction tx){
+    public virtual void AddTransaction(Transaction tx){
         Data.Add(tx);
         Console.WriteLine("Transaction " + tx.Hash + " is added to block " + this.Index);
     }
     
-    public String createTransactionDataHash(){
+    public String CreateTransactionDataHash(){
         String txHash = "";
         for(int i = 0; i<Data.Count; i++){
             txHash += Data[i].Hash;
         }
-        return Crypto.createHash(txHash);
+        return Crypto.CreateHash(txHash);
     }
 
-    public String createBlockHash(){
-        return Crypto.createHash(this.Index+this.Nonce+this.Timestamp.ToString()+this.createTransactionDataHash()+this.PreviousHash);
+    public String CreateBlockHash(){
+        return Crypto.CreateHash(this.Index+this.Nonce+this.Timestamp.ToString()+this.CreateTransactionDataHash()+this.PreviousHash);
     }
 
     public Block Clone(){  

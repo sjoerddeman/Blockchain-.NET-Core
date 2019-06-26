@@ -3,8 +3,6 @@ using System;
 using System.Collections.Generic;
 
 public class Channel {
-    public List<Block> minedBlocks;
-    public List<Transaction> TransactionPool;
     public List<Node> Nodes;
     public List<MasterNode> MasterNodes;
     private static Channel instance;
@@ -16,8 +14,6 @@ public class Channel {
         get{
             if(instance == null){
                 instance = new Channel();
-                instance.minedBlocks = new List<Block>();
-                instance.TransactionPool = new List<Transaction>(); 
                 instance.Nodes = new List<Node>(); 
                 instance.MasterNodes = new List<MasterNode>(); 
             }
@@ -25,30 +21,36 @@ public class Channel {
         }
     }
 
-    public static void registerNode(ClientNode node){
+    public static void RegisterNode(ClientNode node){
         if(!Instance.Nodes.Contains(node)){
             Instance.Nodes.Add(node);
         }
     }
-    public static void getCurrentChain(ClientNode node){
+
+    public static void RegisterMasterNode(MasterNode node){
+        if(!Instance.MasterNodes.Contains(node)){
+            Instance.MasterNodes.Add(node);
+        }
+        if(!Instance.Nodes.Contains(node)){
+            Instance.Nodes.Add(node);
+        }
+    }
+    public static void GetCurrentChain(ClientNode node){
         if(Instance.MasterNodes.Count!=0){
             foreach(Block block in Instance.MasterNodes[0].Blocks){
-                node.addBlock(block.Clone());
+                node.AddBlock(block.Clone());
             }
         }
     }
-    public static void registerMasterNode(MasterNode node){
-        Instance.MasterNodes.Add(node);
-        Instance.Nodes.Add(node);
-    }
-     public static void sendTransaction(Transaction tx){
+
+     public static void AddNewTransaction(Transaction tx){
         foreach(MasterNode mn in Instance.MasterNodes){
-            mn.addNewTransaction((Transaction)tx.Clone());
+            mn.AddNewTransaction((Transaction)tx.Clone());
         }
      }     
-     public static void addBlock(Block block){
+     public static void AddNewBlock(Block block){
         foreach(Node node in Instance.Nodes){
-            node.addBlock((Block)block.Clone());
+            node.AddBlock((Block)block.Clone());
         }
      }
 }

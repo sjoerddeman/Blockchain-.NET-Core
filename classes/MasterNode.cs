@@ -3,12 +3,12 @@ using System.Collections.Generic;
 
 public class MasterNode : Node{
 
-    public List<Transaction> openTransactions = new List<Transaction>();
+    public List<Transaction> OpenTransactions = new List<Transaction>();
 
     public MasterNode(String name):base(name){
-            Channel.registerMasterNode(this);
+            Channel.RegisterMasterNode(this);
             this.Blocks = new List<Block>();
-            createGenesisBlock();
+            CreateGenesisBlock();
     }
     public MasterNode(List<Block> blocks, String name) : base(name){
         if(blocks != null || blocks.Count != 0){
@@ -19,22 +19,29 @@ public class MasterNode : Node{
 
     }
 
-    public void addNewTransaction(Transaction tx){
-        openTransactions.Add(tx);
+    public void AddNewTransaction(Transaction tx){
+        OpenTransactions.Add(tx);
     }
-    public int mineBlock(){
+
+    public void StartMining(){
+        MineNewBlock(AddTransactionsToNewBlock());
+    }
+    public Block AddTransactionsToNewBlock(){
         Block previousBlock = Blocks[Blocks.Count-1];
         Block block = new Block(previousBlock.Index+1);
         block.PreviousHash = previousBlock.Hash;
 
-        foreach(Transaction tx in openTransactions){
-            if(tx.isTransactionValid(getBalance(tx.From))){
-                block.addTransaction(tx);
+        foreach(Transaction tx in OpenTransactions){
+            if(tx.IsTransactionValid(GetWalletBalance(tx.From))){
+                block.AddTransaction(tx);
             }else{
                 Console.WriteLine(this.Name+" doesn't add "+tx.Hash+" to block "+block.Index);
             }
         }
-        openTransactions = new List<Transaction>();
+        OpenTransactions = new List<Transaction>();
+        return block;
+    }
+    public void MineNewBlock(Block block){
         String dif = "";
         for(int i = 0; i<Node.Difficulty;i++){
             dif += "0";
@@ -43,22 +50,21 @@ public class MasterNode : Node{
         while(!block.Hash.StartsWith(dif)){
             block.Hash = "";
             block.Nonce++;
-            String hashString = block.Index+block.Nonce+block.Timestamp.ToString()+block.createTransactionDataHash()+block.PreviousHash;
-            block.Hash = Crypto.createHash(hashString);
+            String hashString = block.Index+block.Nonce+block.Timestamp.ToString()+block.CreateTransactionDataHash()+block.PreviousHash;
+            block.Hash = Crypto.CreateHash(hashString);
         }
-        Channel.addBlock(block);
+        Channel.AddNewBlock(block);
         Console.WriteLine("Block "+ block.Index + " is mined with nonce " + block.Nonce + ".");
-        return block.Nonce;
     }
 
-    private void createGenesisBlock(){
+    private void CreateGenesisBlock(){
         if(this.Blocks.Count == 0){
             GenesisBlock genesisBlock = new GenesisBlock();
-            Transaction iTx1 = new Transaction("0", this.Wallet.PublicKey, Node.initCoins);
+            Transaction iTx1 = new Transaction("0", this.Wallet.PublicKey, Node.InitCoins);
 
-            genesisBlock.addTransaction(iTx1);
+            genesisBlock.AddTransaction(iTx1);
 
-            Channel.addBlock(genesisBlock);
+            MineNewBlock(genesisBlock);
         }
     }
 }

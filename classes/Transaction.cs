@@ -15,12 +15,12 @@ public class Transaction : ICloneable{
         this.From = from;
         this.To = to;
         this.Amount = amount;
-        this.createHash();
+        this.CreateHash();
     }
 
-    public Boolean isTransactionValid(double senderBalance){
+    public Boolean IsTransactionValid(double senderBalance){
         Boolean result = true;
-        if(!Crypto.validateSignature(this.Signature, this.Hash, this.From)){    
+        if(!Crypto.ValidateSignature(this.Signature, this.Hash, this.From)){    
             result = false;
             Console.WriteLine("Transaction " + this.Hash + " does not have a valid signature.");
         }
@@ -31,15 +31,15 @@ public class Transaction : ICloneable{
         return result;
     }
 
-    public void addSignature(String signature){
+    public void AddSignature(String signature){
         this.Signature = signature;
     }
 
-    private void createHash(){
-        this.Hash = Crypto.createHash(Timestamp+From+To+Amount);
+    private void CreateHash(){
+        this.Hash = Crypto.CreateHash(Timestamp+From+To+Amount);
     }
 
-        public override String ToString(){
+    public override String ToString(){
         String output = "\t\t timestamp: " + this.Timestamp + "\n\t\t From: " + this.From + "\n\t\t To: " + this.To + "\n\t\t Amount: " + this.Amount + "\n\t\t Signature: " + this.Signature + "\n\t";
         return output;
     }

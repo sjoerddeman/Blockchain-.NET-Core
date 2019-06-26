@@ -13,39 +13,31 @@ namespace CSBlockChain
             ClientNode cn2 = new ClientNode("Client Node 2"); 
             ClientNode cn3 = new ClientNode("Client Node 3");           
 
-            mn.sendTransaction(cn1.getWalletAddress(), 5);
-            mn.sendTransaction(cn2.getWalletAddress(), 10);
-            mn.sendTransaction(cn3.getWalletAddress(), 5);
+            mn.SendTransaction(cn1.GetWalletAddress(), 5);
+            mn.SendTransaction(cn2.GetWalletAddress(), 10);
+            mn.SendTransaction(cn3.GetWalletAddress(), 5);
 
-            mn.mineBlock();
+            mn.StartMining();
 
-            cn2.sendTransaction(cn1.getWalletAddress(), 5);
-            cn3.sendTransaction(mn.getWalletAddress(), 10);
+            cn2.SendTransaction(cn1.GetWalletAddress(), 5);
+            cn3.SendTransaction(mn.GetWalletAddress(), 10);
 
-            mn.mineBlock();
+            mn.StartMining();
 
             ClientNode cn4 = new ClientNode("Client Node 4");
             
-            cn2.sendTransaction(cn4.getWalletAddress(), 5);
-            cn3.sendTransaction(mn.getWalletAddress(), 5);
+            cn2.SendTransaction(cn4.GetWalletAddress(), 5);
+            cn3.SendTransaction(mn.GetWalletAddress(), 5);
             
-            mn.mineBlock();
+            mn.StartMining();
 
-            Console.WriteLine("The chain is valid: " + mn.isChainValid());
-
-            Console.WriteLine(mn.Name+ " has "+mn.Blocks.Count+" blocks");
-            Console.WriteLine(cn1.Name+" has "+cn1.Blocks.Count+" blocks");
-            Console.WriteLine(cn2.Name+" has "+cn2.Blocks.Count+" blocks");
-            Console.WriteLine(cn3.Name+" has "+cn3.Blocks.Count+" blocks");
-            Console.WriteLine(cn4.Name+" has "+cn4.Blocks.Count+" blocks");            
-
-            //Console.WriteLine("Block 1: \n "+mn.Blocks[1]+"\n");
-
-            Console.WriteLine("Masternode has: "+mn.getBalance(mn.getWalletAddress()));
-            Console.WriteLine(cn1.Name+" has: "+cn1.getBalance(cn1.getWalletAddress()));
-            Console.WriteLine(cn2.Name+" has: "+cn2.getBalance(cn2.getWalletAddress()));
-            Console.WriteLine(cn3.Name+" has: "+cn3.getBalance(cn3.getWalletAddress()));
-            Console.WriteLine(cn4.Name+" has: "+cn4.getBalance(cn4.getWalletAddress()));   
+            Console.WriteLine("The chain is valid: " + mn.IsChainValid());
+       
+            Console.WriteLine("Masternode has: "+mn.GetWalletBalance(mn.GetWalletAddress())+" coins");
+            Console.WriteLine(cn1.Name+" has: "+cn1.GetWalletBalance(cn1.GetWalletAddress())+" coins");
+            Console.WriteLine(cn2.Name+" has: "+cn2.GetWalletBalance(cn2.GetWalletAddress())+" coins");
+            Console.WriteLine(cn3.Name+" has: "+cn3.GetWalletBalance(cn3.GetWalletAddress())+" coins");
+            Console.WriteLine(cn4.Name+" has: "+cn4.GetWalletBalance(cn4.GetWalletAddress())+" coins");   
 
             Console.WriteLine(mn);         
         }
